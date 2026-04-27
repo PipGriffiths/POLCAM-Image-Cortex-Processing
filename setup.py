@@ -5,7 +5,7 @@ setup(
     version="0.1.0",
     packages=find_packages(),
     install_requires=[
-        "numpy",
+        "numpy == 1.26.4",
         "scipy",
         "scikit-image",
         "matplotlib",
