@@ -1,0 +1,7 @@
+numpy == 1.26.4
+napari == 0.6.5
+skimage == 0.25.2
+scipy == 1.12.0
+qtpy == 2.4.3
+matplotlib
+napari-polcam --- https://github.com/ezrabru/napari-polcam
