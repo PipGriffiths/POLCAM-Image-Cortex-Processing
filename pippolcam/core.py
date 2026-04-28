@@ -87,7 +87,7 @@ class Pip_PolcamMask:
         '''
         if method == 'polcam':
             self._Polcam()
-        if method == 'super-res':
+        elif method == 'super-res':
             self._cropper()
             self._set_top()
         else:
