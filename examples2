@@ -1,0 +1,24 @@
+from pippolcam.core import Pip_PolcamMask, Pip_Fittings, Pip_Profiles, \
+    Pip_Unwrap, reader, figuresaver
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+os.chdir(r"C:\Users\griff\Downloads\Uni All\Coding and Data\Project\Project_Python_Scripts")
+
+rubys = reader('..\CellsInterlinked\RubyCellSet1', 'tif')
+chosen = rubys[8]
+
+polproc = Pip_PolcamMask(image = chosen, offset = 0)
+polproc.Method(method='polcam').Masking(method='local', erosions=13, dilations=0)
+
+unwrapper = Pip_Unwrap(image = chosen, mask = polproc.mask, thickness = 100)
+unwrapper.Unwrap()
+unwrapper.RedefineCentre()
+
+profiler = Pip_Profiles(image = unwrapper.unwrapped, binsize = 100)
+profiler.Filter(method = 'window')
+
+fitter = Pip_Fittings(profiles = profiler.profiles)
+fitter.Method('gauss')
+
+print(fitter.fwhms)
