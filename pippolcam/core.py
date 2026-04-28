@@ -166,7 +166,7 @@ class Pip_PolcamMask:
         return self
     
     
-    def Polcam(self) -> 'Pip_PolcamMask':
+    def _Polcam(self) -> 'Pip_PolcamMask':
         '''
         Takes an image and performs the polcam processing.
             See https://github.com/ezrabru/napari-polcam 
