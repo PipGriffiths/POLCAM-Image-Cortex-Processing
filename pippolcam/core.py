@@ -1133,7 +1133,7 @@ class Pip_Profiles:
         Returns: binary mask of the thresholded unwrapped s0
         '''
         if not self.split_data:
-            self.SplitByType()
+            self._SplitByType()
         
         processed_list = []
         for i, (img, coords) in enumerate(self.split_data):
