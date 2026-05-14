@@ -275,7 +275,7 @@ class Pip_PolcamMask:
         elif method == 'semi-auto':
             self._Segment_SemiAuto_Napari()
         elif method == 'percentile':
-            self._Pecentile(top = top, erosions = erosions, dilations = dilations)
+            self._Percentile(top = top, erosions = erosions, dilations = dilations)
         elif method == 'otsu':
             self._Otsu(radius = radius)
         elif method == 'super':
@@ -625,7 +625,7 @@ class Pip_PolcamMask:
         TYPE boolean numpy array mask.
         '''
         image = self.s0
-        fft = self._cell_fft(image, radius = radius)
+        fft = self._cell_fft(radius = radius)
         thresh = filters.threshold_otsu(fft)
         binary = image > thresh
         cleared_mask = morphology.remove_small_objects(binary, min_size = 250)
